@@ -1,17 +1,20 @@
 # Vertical Credit Spreads
-As an options trader I constantly think about ways to implement effective strategies aimed to capture the difference in realized volatility relatively to 
-volatility implied by the options market. One way to do this is a vertical credit spread. This allows us to skew the probability of success
-to be greater than 50/50 with the tradeoff of a capped profit potential. basically, The higher the POS, the lower the ROI and vice versa.
-A vertical call spread is made up of two legs. Selling a call is one leg and simultaneously buying call is the second leg.  
-The call being sold is the strike aimed to expire worthless, when the strike expires out-the-money(otm) by expiration, the full credit is collected as a profit. 
-But to hedge against the risk of the strike moving in-the-money(itm) by expiration – in addition buy a call to define our risk. By doing this, 
-we know exactly how much we are risking on the trade before execution. That should be enough of a synopsis, lets begin: 
+As an options trader I constantly think about ways to implement effective strategies aimed to capture the difference in realized 
+volatility relatively to the volatility implied by the options market. One way to do this is a vertical credit spread. This allows 
+us to skew the probability of success to be greater than 50/50 with the tradeoff of a capped profit potential. basically, 
+The higher the POS, the lower the ROI and vice versa. A vertical call spread is made up of two legs. Selling a call is one leg and 
+simultaneously buying call is the second leg.  
+The call being sold is the strike aimed to expire worthless, when the strike expires out-the-money(otm) by expiration, the full credit 
+is collected as a profit. 
+But to hedge against the risk of the strike moving in-the-money(itm) by expiration – in addition buy a call to define our risk. By doing 
+this, we know exactly how much we are risking on the trade before execution. That should be enough of a synopsis, lets begin: 
   
   
   # Process
   To simulate the process of performing this trade many times, I first began with creating a basic function.
 This starter function simulates one instance of the Vertical Credit Spread.
-Here I construct the basic portions of the necessary mechanisms such as starting capital, risk per trade, and return on investment from a trade (roi).
+Here I construct the basic portions of the necessary mechanisms such as starting capital, risk per trade, and return on investment 
+from a trade (roi).
 ```{r}
 simulate_options = function(n, initial_capital = 10000, roi) {
   # first, do one round of put credit spread
@@ -86,9 +89,10 @@ plot(simulate_options3(n = 1000), xlab = "Number of Trades", ylab = "Amount of M
 
 # Version 4
 In the final version, I begin to randomize other parameters such as the risk per trade, which is 1-5% of the capital.
-Another parameter that I randomize is the return on investment (roi) per trade, which is changed to 30-50% (admittedly slightly too large).
-However, after several rounds of testing, it seems that the only possible parameter that can be changed which would allow for a profitable series of trades is the win rate.
-After making it such that the trades are successful 80% of the time (up from 66%), 
+Another parameter that I randomize is the return on investment (roi) per trade, which is changed to 30-50% (admittedly slightly too 
+large).
+However, after several rounds of testing, it seems that the only possible parameter that can be changed which would allow for a 
+profitable series of trades is the win rate.After making it such that the trades are successful 80% of the time (up from 66%), 
 the pattern is such that the winning trades will outperform the losing trades (indicated by an uptrending capital amount).
 ```{r}
 trade_direction3 = function(x, max_loss, roi) {

@@ -1,9 +1,3 @@
-# Edit
-After sharing my results with other option traders, I made some adjustments to the parameters of the model which I had constructed.
-The new parameters are 0.02-2% risk (prev. 1-5%) and 10-45% roi (prev. 30-50%).
-These changes seem to make the strategy a bit more effective, as long as proper risk management is made use of.
-However, I have not implemented any new features such as trade management, but i look to add that in the future
-
 # Vertical Credit Spreads
 As an options trader I constantly think about wats to implement effective strategies aimed to capture realized volatility relatively to 
 volatility implied by the options market. One way to do this is a vertical credit spread. This allows us to skew the probability of success

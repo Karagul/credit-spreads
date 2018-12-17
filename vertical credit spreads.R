@@ -1,5 +1,5 @@
 # Vertical Credit Spreads
-As an options trader I constantly think about wats to implement effective strategies aimed to capture realized volatility relatively to 
+As an options trader I constantly think about ways to implement effective strategies aimed to capture the difference in realized volatility relatively to 
 volatility implied by the options market. One way to do this is a vertical credit spread. This allows us to skew the probability of success
 to be greater than 50/50 with the tradeoff of a capped profit potential. basically, The higher the POS, the lower the ROI and vice versa.
 A vertical call spread is made up of two legs. Selling a call is one leg and simultaneously buying call is the second leg.  
